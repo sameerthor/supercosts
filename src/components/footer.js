@@ -19,7 +19,7 @@ export default function Footer() {
                                 on top brands across various products and services. Keep an eye out
                                 for more updates!
                             </p>
-                            <div className="social">
+                            {/* <div className="social">
                                 <a href="">
                                     <span>
                                         <svg
@@ -76,7 +76,7 @@ export default function Footer() {
                                         </svg>
                                     </span>
                                 </a>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="col-lg-2 col-md-4 col-sm-12 mb-3 footer-links">
                             <h3>NAVIGATIONS</h3>

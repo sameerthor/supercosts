@@ -1,0 +1,466 @@
+
+ body {
+      background: #f9fbfd;
+      color: #222;
+    }
+    section{
+        padding: 2rem 0;
+    }
+  @media(max-width:600px){
+    .container{
+        padding: 0 .5rem;
+    }
+  }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 70px 8%;
+      gap: 50px;
+      position: relative;
+      overflow: hidden;
+      padding-top: 8rem;
+    }
+
+    /* Background gradient + decorative circles */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -150px;
+      right: -150px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, #2ec4b6 0%, rgba(46,196,182,0) 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #ffaf40 0%, rgba(255,175,64,0) 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .hero .hero-content {
+      flex: 1;
+      z-index: 1;
+      position: relative;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: rgba(46,196,182,0.1);
+      color: #2ec4b6;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+     .hero h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      margin: 0 0 15px;
+      font-weight: 700;
+      color: #111;
+    } 
+    p{
+        font-weight: 500;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+      max-width: 500px;
+      font-weight: 500;
+    }
+
+   .hero .buttons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .buttons .btn {
+      padding: 13px 28px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .buttons .btn-primary {
+      background: #2ec4b6;
+      color: white;
+      box-shadow: 0 6px 15px rgba(46,196,182,0.3);
+    }
+    .buttons .btn-primary:hover {
+      background: #25a89c;
+    }
+
+    .buttons .btn-secondary {
+      background: #fff;
+      color: #2ec4b6;
+      border: 2px solid #2ec4b6;
+    }
+    .buttons .btn-secondary:hover {
+      background: #2ec4b6;
+      color: white;
+    }
+
+   .hero .features {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+   .hero .feature-pill {
+      background: white;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #333;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .hero .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    .hero .hero-image::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle at center, #e0fdf9, #ffffff);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+   .hero .hero-image img {
+      width: 80%;
+      max-width: 350px;
+      transform: rotate(-5deg);
+    }
+
+    @media (max-width: 950px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 6rem 0;
+      }
+
+      .hero .hero h1 {
+        font-size: 2.4rem;
+      }
+      .hero .hero-image::before {
+        width: 300px;
+        height: 300px;
+      }
+      .hero p {
+        max-width: 100%;
+      }
+      .hero .buttons{
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+      .hero .features {
+        justify-content: center;
+      }
+      .hero .hero-content {
+        padding: 0 .5rem;
+      }
+
+    } 
+    @media(max-width:600px){
+        .hero .feature-pill {
+            font-size: .7rem;
+            padding: .5rem;
+        }
+        .hero h1 {
+            font-size: 1.6rem;
+        }
+        .hero p{
+            font-size: .95rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        .buttons .btn {
+            font-size: .8rem;
+            padding: .5rem;
+            min-width: 150px;
+            
+        }
+    }
+
+    /* ways to earn */
+      section  h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #111;
+    }
+
+   .waysToEarn .earn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+
+    .waysToEarn .earn-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .waysToEarn .earn-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .waysToEarn .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #ffaf40, #2ec4b6);
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 30px;
+      margin-bottom: 18px;
+      box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+.waysToEarn .earn-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+   .waysToEarn .earn-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+      font-size: .8rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      
+     section h2 {
+        font-size: 1.6rem;
+      }
+     .waysToEarn .badge {
+        font-size: 0.9rem;
+        padding: 10px 18px;
+      }
+    }
+/* how it works */
+
+
+    .howItWork .step-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 25px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      min-height: 100%;
+    }
+
+    .howItWork .step-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .howItWork .step-number {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, #2ec4b6, #1a9d91);
+       box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+   .howItWork  .step-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #111;
+    }
+
+    .howItWork .step-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+     
+      .howItWork .step-card {
+        padding: 30px 20px;
+      }
+      .howItWork .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+      }
+    }
+    /* user review */
+    
+   
+
+    .userReview .review-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+    .userReview .review-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Header section with avatar + user details */
+    .userReview .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .userReview .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff9966, #ff5e62);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff;
+      margin-right: 15px;
+    }
+    .userReview .user-info h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #111;
+    }
+    .userReview .user-info span {
+      font-size: 0.9rem;
+      color: #777;
+      font-weight: 500;
+    }
+
+    /* Review text */
+    .userReview .review-text {
+      font-size: .9rem;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    /* Footer badges */
+    .userReview .review-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+   .userReview  .points {
+      background: #111;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 18px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: inset 0 0 5px rgba(46,196,182,0.4);
+    }
+    .userReview .redeem-status {
+      background: linear-gradient(135deg, #2ec4b6, #197d73);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(46,196,182,0.3);
+    }
+ /* faqs */
+ .faqssec .container{
+    max-width: 800px;
+ }
+  .faqssec .accordion-button {
+      font-weight: 600;
+      font-size: 1.05rem;
+      background: #fff;
+      color: #111;
+      border-radius: 8px !important;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border: none;
+      outline: none;
+      padding: .8rem ;
+      width: 100%;
+      text-align: left;
+    }
+    .faqssec .accordion-button:not(.collapsed) {
+      background: #2ec4b6;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(46,196,182,0.3);
+    }
+    .faqssec .accordion-body {
+      background: #fff;
+      color: #555;
+      line-height: 1.6;
+      border-radius: 0 0 8px 8px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+      padding: .6rem;
+      font-weight: 500;
+      font-size: .9rem;
+    }
+    .faqssec .accordion-item {
+      border: none;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .faqssec .accordion-header{
+        margin-bottom: 0;
+    }
+ .faqssec .accordion-button:not(.collapsed)::after {
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23052c65' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+    transform: rotate(-180deg);
+    width: 20px;
+    height: 20px;
+  }
+
+ 
+  
