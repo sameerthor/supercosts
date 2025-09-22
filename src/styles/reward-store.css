@@ -1,0 +1,136 @@
+ body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            max-width: 900px;
+            width: 100%;
+        }
+        .left-panel {
+            padding: 40px;
+            width: 60%;
+            background: #e6f3ff;
+        }
+        .tag {
+            background: #ffcc99;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        h1 {
+            color: #1a3c5e;
+            font-size: 2.5em;
+            margin: 0 0 15px;
+        }
+        p {
+            color: #4a6f8d;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            background: #ff9900;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-primary:hover {
+            background: #e68a00;
+        }
+        .btn-secondary {
+            background: #ffdab9;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .right-panel {
+            width: 40%;
+            background: #ff6f61;
+            padding: 30px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .coupon-card {
+            background: #ff8c7a;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .coupon-title {
+            color: #fff;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .discount {
+            color: #fff;
+            font-size: 2em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ffffff, #f0e68c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 10px 0;
+        }
+        .code {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            margin: 10px 0;
+            letter-spacing: 2px;
+        }
+        .btn-coupon {
+            background: #fff;
+            color: #ff6f61;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .btn-coupon:hover {
+            background: #ffe4e1;
+        }
+        .validity {
+            color: #fff;
+            font-size: 0.9em;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+        .note {
+            color: #fff;
+            font-size: 0.8em;
+            margin-top: 15px;
+            text-align: center;
+        }

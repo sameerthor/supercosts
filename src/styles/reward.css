@@ -461,6 +461,280 @@
     width: 20px;
     height: 20px;
   }
+/* refer and earn */
 
- 
-  
+.refer-earn-section {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Heading */
+.refer-earn-section h2 {
+  color: #2ec4b6;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+/* Paragraph */
+.refer-earn-section p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Input + Copy button row */
+.refer-earn-section .form-control {
+  max-width: 400px;
+  border: 2px solid #2ec4b6;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.refer-earn-section .btn {
+  border-radius: 6px;
+  font-size: 0.95rem;
+  padding: 10px 16px;
+  transition: all 0.3s ease;
+}
+
+/* Primary button */
+.refer-earn-section .btn-primary,
+.refer-earn-section .btn-copy,
+.refer-earn-section .btn-share {
+  background-color: #2ec4b6;
+  color: #fff;
+  border: none;
+}
+
+.refer-earn-section .btn-copy:hover,
+.refer-earn-section .btn-share:hover {
+  background-color: #25a699;
+  color: #fff;
+}
+
+/* Outline buttons (social media) */
+.refer-earn-section .btn-outline-primary:hover,
+.refer-earn-section .btn-outline-info:hover,
+.refer-earn-section .btn-outline-secondary:hover,
+.refer-earn-section .btn-outline-success:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+/* Gap between social buttons */
+.refer-earn-section .gap-2 > .btn {
+  min-width: 90px;
+}
+
+  .topshareBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+   .topshareBtn .btn{
+       background: #2ec4b6;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin: 6px;
+    transition: all 0.3s 
+ease;
+  }
+  .social-share button {
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    min-width: 45px !important;
+    height: 45px;
+    margin: 0 8px;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: transform 0.3s ;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.social-share button:hover {
+    opacity: 0.85;
+  transform: translateY(-2px);
+
+}
+  .social-share button svg {
+    width: 30px;
+    fill: #fff;
+
+}
+ .social-share .btn:hover {
+      transform: scale(1.15);
+    }
+
+     .social-share .whatsapp { background: #25D366; }
+    .social-share .facebook { background: #1877f2; }
+    .social-share .twitter { background: #000000; }
+   .social-share  .linkedin { background: #0A66C2; }
+   .social-share  .email { background: #ea4335; }
+   
+   .referral-link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+    background: #f1fdfc;
+    border: 2px dashed #2ec4b6;
+    border-radius: 12px;
+    padding: 12px 18px;
+    display: inline-block;
+    margin-bottom: 20px;
+    word-break: break-all;
+}
+.refer-box {
+    background: #fff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+}
+@media(max-width:600px){
+  .refer-earn-section{
+    padding: 10px 0;
+  }
+}
+/* reward rule */
+.reward-rules {
+  max-width: 750px;
+  margin: auto;
+  padding: 35px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+.reward-rules h2 {
+  color: #064b48;
+  font-size: 30px;
+  margin-bottom: 35px;
+  position: relative;
+  font-weight: 700;
+}
+.reward-rules h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #2ec4b6;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.rule-box {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #e6faf8, #ffffff);
+  padding: 10px 25px;
+  margin: 20px 0;
+  border-radius: 16px;
+  box-shadow: 0px 6px 16px rgba(46, 196, 182, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeUp 0.8s ease both;
+}
+.rule-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 22px rgba(46, 196, 182, 0.25);
+}
+
+.reward-circle {
+  position: relative;
+  width: 95px;
+  height: 95px;
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  margin-right: 25px;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.reward-circle .amount {
+  position: relative;
+  z-index: 2;
+}
+.reward-circle .ribbon {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: -25px;
+  width: 140%;
+  height: 40%;
+  background: rgba(255,255,255,0.2);
+  transform: rotate(-20deg);
+  z-index: 1;
+}
+
+.rule-content {
+  text-align: left;
+}
+.rule-content h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #2ec4b6;
+  font-weight: 700;
+}
+.rule-content p {
+  margin: 4px 0 0;
+  color: #064b48;
+  font-size: 16px;
+  line-height: 1.4;
+}
+@media(max-width: 600px){
+  .reward-rules {
+    padding: 10px;
+  }
+  .rule-box{
+    padding: 20px 10px;
+  }
+  .reward-circle{
+    margin-right: 10px;
+  }
+  .reward-circle{
+    font-weight: 600;
+    font-size: 1rem;
+    height: 60px;
+    width:80px;
+  }
+  .rule-content h3{
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .reward-rules h2{
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+}
+
+/* Fade-in animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

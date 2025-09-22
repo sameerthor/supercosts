@@ -1,9 +1,8 @@
 import Head from "next/head";
+import "@/styles/reward.css";
+import "@/styles/reward-store.css";
 import Image from "next/image";
 import ReferEarn from "@/components/ReferEarn";
-
-
-import "@/styles/reward.css";
 import Link from "next/link";
 import moment from "moment";
 import { NextSeo } from 'next-seo';
@@ -20,26 +19,26 @@ export default function Home({ categories, stores, blogs }) {
         description="Find out the working and verified coupon codes only at Supercosts.com. All the coupons are tested and verified by the team."
       />
         {/* hero section */}
-        <section className="hero">
-            <div className="hero-content">
-            <span className="badge">SuperCosts Rewards</span>
-            <h1>Earn more while you shop smarter</h1>
-            <p>Join our reward program and turn your shopping into savings. Collect points, unlock exclusive perks, and redeem with zero hassle.</p>
-
-            <div className="buttons">
-                <button className="btn btn-primary">Start Earning</button>
-                <button className="btn btn-secondary">Browse Stores</button>
-            </div>
-
-            <div className="features">
-                <div className="feature-pill">1000+ Stores</div>
-                <div className="feature-pill">Instant Redeem</div>
-                <div className="feature-pill">Zero Fees</div>
-            </div>
-            </div>
-
-            <div className="hero-image">
-                 <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Rewards Illustration"/>
+        <section>
+            <div className="container">
+                <div className="left-panel">
+                    <span className="tag">🌟 Boduto</span>
+                    <h1>Join FunRewards</h1>
+                    <p>Earn points every time you shop with us and redeem them for awesome perks!</p>
+                    <button className="btn-primary">Join Now</button>
+                    <a href="#how" className="btn-secondary">How to Redeem?</a>
+                    <a href="#learn" className="btn-secondary">Learn about points and perks</a>
+                </div>
+                <div className="right-panel">
+                    <div className="coupon-card">
+                        <div className="coupon-title">Get Offbaby Coupon Code</div>
+                        <div className="discount">UP TO 40% OFF</div>
+                        <div className="code">****-****-****</div>
+                        <button className="btn-coupon">Get Discount Now</button>
+                        <div className="validity">🎉 Valid until 25 Sep 2025 11:59 PM</div>
+                        <div className="note">If coupon doesn’t work, claim 100 points.</div>
+                    </div>
+                </div>
             </div>
         </section>
         {/* reward rule */}
