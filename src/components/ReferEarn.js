@@ -49,7 +49,7 @@ const ReferEarn = () => {
   };
 
   return (
-    <section className="refer-earn-section py-5" style={{ backgroundColor: "#f8f9fa" }}>
+    <section className="refer-earn-section py-5" id="referFriend" style={{ backgroundColor: "#f8f9fa" }}>
       <div className="container text-center">
           <div className="refer-box">
                 <h2 className="mb-3" style={{ color: "#2ec4b6", fontWeight: "bold" }}>

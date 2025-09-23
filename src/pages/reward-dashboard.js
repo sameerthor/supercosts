@@ -1,11 +1,14 @@
 import Head from "next/head";
 import "@/styles/reward.css";
-import "@/styles/reward-store.css";
+import "@/styles/reward-dashboard.css";
+import ReactSearchBox from 'react-search-box';
 import Image from "next/image";
 import ReferEarn from "@/components/ReferEarn";
+import RewardHistory from "@/components/RewardHistory";
 import Link from "next/link";
 import moment from "moment";
 import { NextSeo } from 'next-seo';
+
 
 export default function Home({ categories, stores, blogs }) {
   // Helper function to validate image URLs
@@ -18,31 +21,27 @@ export default function Home({ categories, stores, blogs }) {
         title="Supercosts - Best Discount Code, Coupons & Promo Codes 2025"
         description="Find out the working and verified coupon codes only at Supercosts.com. All the coupons are tested and verified by the team."
       />
-        {/* hero section */}
-        <section className="strhero">
+        <section style={{ paddingBottom: 0 }}>
             <div className="container">
-                <div className="left-panel">
-                    <span className="tag">🌟 Boduto</span>
-                    <h1>Join FunRewards</h1>
-                    <p>Earn points every time you shop with us and redeem them for awesome perks!</p>
-                    <div className="rewardbtns">
-                        <button className="btn-primary">Join Now</button>
-                        <a href="#how" className="btn-secondary" data-bs-toggle="modal" data-bs-target="#redeemModal">How to Redeem?</a>
-                        <a href="/reward" className="btn-secondary">Learn about points and perks</a>
+                <div class="welcome-card">
+                    <div>
+                            <div class="avatar">A</div>
+                            <div class="greeting">Hi there</div>
+                            <div class="username">Alex Harper</div>
+                            <div class="points">50</div>
+                            <div class="points-note">🎉 Your points never expire!</div>
                     </div>
-                </div>
-                <div className="right-panel">
-                    <div className="coupon-card">
-                        <div className="coupon-title">Get Offbaby Coupon Code</div>
-                        <div className="discount">UP TO 40% OFF</div>
-                        <div className="code">****-****-****</div>
-                        <button className="btn-coupon">Get Discount Now</button>
-                        <div className="validity">🎉 Valid until 25 Sep 2025 11:59 PM</div>
-                        <div className="note">If coupon doesn’t work, claim 100 points.</div>
+                    <div class="button-group">
+                        <button data-bs-toggle="modal" data-bs-target="#exploreStr" class="btn btn-explore">Explore</button>
+                        <button data-bs-toggle="modal" data-bs-target="#reedeemModal" class="btn btn-earn">Redeem Points</button>
+                        <a href="#referFriend" class="btn btn-track">Track</a>
+                        <a href="#referFriend" class="btn btn-invite">Invite</a>
                     </div>
+                    <div class="wave"></div>
                 </div>
             </div>
         </section>
+        
         {/* reward rule */}
         <section>
             <div className="container">
@@ -114,19 +113,16 @@ export default function Home({ categories, stores, blogs }) {
                 </div>
             </div>        
         </section>
-        {/* about store */}
-        <section className="about-store-section">
+        {/* rewardHistory */}
+        <section className='rewardHistoryPage' id='rewardsHistory'>
             <div className="container">
-                <div className="about-text">
-                    <h2>About Bluum Maison</h2>
-                    <div>
-                        <p>
-                        Bluum Maison is a home decor wholesaler that sells premium tableware, home decor, and giftable accessories. Customers will find napkins, table accessories, table linens, tablecloths, and candle holders on their website. Free shipping is available for Canadian + US orders. Get wholesale home decor at discounted prices using Bluum Maison Gift Cards and Gift Vouchers from Scoopcost.
-                        </p>
-                    </div>
-                </div>
+                <h2>Reward History</h2>
+               <div className="tableContainer">
+                    <RewardHistory />
+               </div>
             </div>
-       </section>
+        </section>
+        
         {/* ways to earn  */}
         <section className="waysToEarn">
             <div className="container">
@@ -358,97 +354,97 @@ export default function Home({ categories, stores, blogs }) {
                 </div>
             </div>
         </section>
-        <section className="brands-section">
-            <div className="container">
-                <div className="brands-header">
-                    <h2>Top Rated Brands</h2>
-                    <p>Shop smarter, earn rewards faster with your favorite brands</p>
-                </div>
-                <div className="brands-grid">            
-                    <div className="brand-card">
-                    <div className="brand-tag">Lifestyle</div>
-                    <div className="brand-logo">
-                        <a href="https://scoopcoupons.com/reward/cocktail-escape">
-                        <img src="https://scoopcoupons.com/wp-content/uploads/2022/02/cocktail-escape-coupons-1-300x288.png" alt="COCKTAIL ESCAPE Logo" loading="lazy" />
-                        </a>
-                    </div>
-                    <h3>
-                        <a href="https://scoopcoupons.com/reward/cocktail-escape">COCKTAIL ESCAPE</a>
-                    </h3>
-                    </div>
-                    <div className="brand-card">
-                    <div className="brand-tag">Related Reward</div>
-                    <div className="brand-logo">
-                        <a href="https://scoopcoupons.com/reward/energy-washball">
-                        <img src="https://scoopcoupons.com/wp-content/uploads/2022/02/energy-washball-coupons-1-300x96.png" alt="Energy Washball Logo" loading="lazy" />
-                        </a>
-                    </div>
-                    <h3>
-                        <a href="https://scoopcoupons.com/reward/energy-washball">Energy Washball</a>
-                    </h3>
-                    </div>
-                    <div className="brand-card">
-                    <div className="brand-tag">Lifestyle</div>
-                    <div className="brand-logo">
-                        <a href="https://scoopcoupons.com/reward/ludoeduca">
-                        <img src="https://scoopcoupons.com/wp-content/uploads/2022/02/ludoeduca-coupons-1.png" alt="Ludoeduca Logo" loading="lazy" />
-                        </a>
-                    </div>
-                    <h3>
-                        <a href="https://scoopcoupons.com/reward/ludoeduca">Ludoeduca</a>
-                    </h3>
-                    </div>
-                    <div className="brand-card">
-                    <div className="brand-tag">Related Reward</div>
-                    <div className="brand-logo">
-                        <a href="https://scoopcoupons.com/reward/ohmydogvip">
-                        <img src="https://scoopcoupons.com/wp-content/uploads/2022/02/ohmydogvip-coupons-1.png" alt="OhmydogVIP Logo" loading="lazy" />
-                        </a>
-                    </div>
-                    <h3>
-                        <a href="https://scoopcoupons.com/reward/ohmydogvip">OhmydogVIP</a>
-                    </h3>
-                    </div>
-                </div>
-             </div>    
-        </section>
-         {/* how to redeem modal */}
-         <div
-        className="modal fade giftModal"
-        id="redeemModal"
-        tabIndex="-1"
-        aria-labelledby="redeemModal"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">How To Redeem</h5>
-              <button
-                type="button"
-                className="closeBtn ms-auto"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              >x</button>
-            </div>
-            <div className="modal-body">
-              <div className="listItem">
-                <span className="method">Online</span>
-                <div className="custom-list">
-                    <ul className="custom-list">
-                        <li>Visit bluummaison.com and add products to the cart.</li>
-                        <li>Proceed to checkout and look for the ‘Gift Card’ box.</li>
-                        <li>Enter the card details received via email and click ‘Apply’.</li>
-                        <li>The amount will be deducted from the total price.</li>
-                        <li>Complete any balance payment via other payment modes.</li>
-                    </ul>
-                </div>
-               </div>
-            </div>
+        {/* refer friend*/}
+         <ReferEarn />
+    
+        {/* search modal */}
+            <div
+                className="modal fade giftModal reedeemModal"
+                id="exploreStr"
+                tabIndex="-1"
+                aria-labelledby="redeemModal"
+                aria-hidden="true"
+            >
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Serach Stores</h5>
+                            <button
+                                type="button"
+                                className="closeBtn ms-auto"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            >x</button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="saerchBx">
+                                <ReactSearchBox
+                                    placeholder="Search Store"
+                                    value=""
+                                    className="d-flex navbarSearch"
+                                   
+                                    onFocus={() => fetchData()}
+                                    clearOnSelect={true}
+                                    onSelect={(record) => {
+                                        const { key } = record.item;
 
-          </div>
-        </div>
-      </div>
+                                        window.location.href = `/${key}`;
+
+                                    }}
+                                    leftIcon={<svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width={16}
+                                        height={16}
+                                        fill="#2f3c97"
+                                        className="bi bi-search"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                    </svg>}
+                                />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {/* reedeem modal */}
+            <div
+                className="modal fade giftModal reedeemModal"
+                id="reedeemModal"
+                tabIndex="-1"
+                aria-labelledby="redeemModal"
+                aria-hidden="true"
+            >
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Redeem Points</h5>
+                            <button
+                                type="button"
+                                className="closeBtn ms-auto"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            >x</button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="redeem-section">
+                                <label htmlFor="points" className="redeem-label">
+                                    Enter how many points you want to redeem <span>(minimum 1000 points)</span>
+                                </label>
+
+                                <input type="number" id="points" className="redeem-input form-control" placeholder="eg 1000" min="1000" />
+
+                                <p className="redeem-note">
+                                    Your amount will be transferred to your PayPal account <a href="#" className="change-link"> change PayPal account</a>
+                                </p>
+
+                                <button className="redeem-btn">Redeem Cash</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         
     </>
   );

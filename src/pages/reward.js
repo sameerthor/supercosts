@@ -345,7 +345,7 @@ export default function Home({ categories, stores, blogs }) {
             </div>
         </section>
         
-         <ReferEarn />
+        <ReferEarn />
         
     </>
   );

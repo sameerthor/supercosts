@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 
@@ -12,6 +12,12 @@ import ReactSearchBox from "react-search-box";
 import { useRouter } from 'next/router';
 
 export default function Header() {
+    const [showDropdown, setShowDropdown] = useState(false);
+    const dropdownRef = useRef(null);
+    const toggleRef = useRef(null);
+    const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
     const router = useRouter();
     const [postCategories, setPostCategories] = useState([]);
     useEffect(() => {
@@ -39,14 +45,33 @@ export default function Header() {
                 console.log(error);
             })
     }
+    
+    useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        toggleRef.current &&
+        !toggleRef.current.contains(event.target)
+      ) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+  
     return (
         <>
             <nav className="nav headerNav">
             <button className="navOpenBtn" aria-label="Open Navigation">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
-            </svg>
-    </button>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
+                </svg>
+            </button>
                 <a href="/" className="logo">
                     Super<span>Costs</span>
                 </a>
@@ -105,11 +130,87 @@ export default function Header() {
                         </Link>
                     </li>
                 </ul>
-                <button id="searchIcon" className="search-icon" aria-label="Search">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
-                </svg>
-    </button>
+                <div className='searchDropWrapper'>
+                    <button id="searchIcon" className="search-icon" aria-label="Search">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                        </svg>
+                    </button>
+                    {/* <div className="profile-wrapper">
+                        <div
+                        className="profile-icon"
+                        id="profileToggle"
+                        ref={toggleRef}
+                        onClick={toggleDropdown}
+                        >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                           
+                            viewBox="0 0 448 512"
+                        >
+                            <path
+                            fill="#2ec4b6"
+                            d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+                            />
+                        </svg>
+                        </div>
+                        <div
+                        className="dropdown-menu"
+                        id="profileDropdown"
+                        ref={dropdownRef}
+                        style={{ display: showDropdown ? 'block' : 'none' }}
+                        >
+                        <div className="dropdown-header">Albert Schultz</div>
+                        <a href="/reward-dashboard" className="dropdown-item">
+                            <i className="fa-solid fa-chart-line">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                fill="#2ec4b6"
+                                viewBox="0 0 16 16"
+                            >
+                                <path d="M3 13h2V7H3v6zm4 0h2V3H7v10zm4 0h2V9h-2v4z" />
+                            </svg>
+                            </i>
+                            Dashboard
+                        </a>
+                        <a href="/user-profile" className="dropdown-item">
+                            <i className="fa-solid fa-user">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                fill="#2ec4b6"
+                                viewBox="0 0 448 512"
+                            >
+                                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+                            </svg>
+                            </i>
+                            Profile
+                        </a>
+                        <a
+                            href="/login"
+                            className="dropdown-item"
+                        >
+                            <i className="fa-solid fa-right-from-bracket">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                fill="#2ec4b6"
+                                viewBox="0 0 16 16"
+                            >
+                                <path d="M6 2a1 1 0 0 0-1 1v3h1V3h7v10H6v-3H5v3a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H6z" />
+                                <path d="M.146 8.354a.5.5 0 0 0 0-.708L3.793 4H2.5a.5.5 0 0 0 0 1h1.793L.146 7.646a.5.5 0 1 0 .708.708L4.293 9H2.5a.5.5 0 0 0 0 1h1.793L.146 8.354z" />
+                            </svg>
+                            </i>
+                            Login
+                        </a>
+                        </div>
+                    </div> */}
+                </div>
+                
                 <div className="search-box">
                
                 <ReactSearchBox
