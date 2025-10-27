@@ -93,8 +93,8 @@ const StorePage = ({ store, relStores, simCat }) => {
     const [showCommentBox, setShowCommentBox] = useState(false);
     const toggleCommentBox = () => {
         setShowCommentBox(!showCommentBox);
-      };
-    
+    };
+
     return (
         <>
             <NextSeo
@@ -113,11 +113,11 @@ const StorePage = ({ store, relStores, simCat }) => {
             {/* Breadcrumb */}
             <section className="storePage">
                 <div className="container">
-                <div className='affiDisc'>
-                    <p>
-                    Supercosts may earn a commission when you use coupons on this page. <a href='/affiliate-disclosure'>Learn More</a>
-                    </p>
-                </div>
+                    <div className='affiDisc'>
+                        <p>
+                            Supercosts may earn a commission when you use coupons on this page. <a href='/affiliate-disclosure'>Learn More</a>
+                        </p>
+                    </div>
                     <div className="row">
                         <div className="col-md-12 p-0">
                             <div className="breadcrumb">
@@ -128,9 +128,9 @@ const StorePage = ({ store, relStores, simCat }) => {
                                     <li>{store.title} coupon code</li>
                                 </ul>
                                 <div className="storeCat">
-                                {store.category.map((item) =>
-                                    <a href={`/category/${item.slug}`}>{item.title}</a>
-                                )}
+                                    {store.category.map((item) =>
+                                        <a href={`/category/${item.slug}`}>{item.title}</a>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -180,7 +180,7 @@ const StorePage = ({ store, relStores, simCat }) => {
                             {store.coupon_set.length > 0 && store.coupon_set.sort(function (a, b) {
                                 return a.coupon_type !== null ? a.coupon_type.localeCompare(b.coupon_type) : a;
                             }).map((item, index) =>
-                                <Coupon key={index} store={_.omit(store, 'coupon_set')} coupon_data={item} tot_count={store.coupon_set.length} numb={index+1} />
+                                <Coupon key={index} store={_.omit(store, 'coupon_set')} coupon_data={item} tot_count={store.coupon_set.length} numb={index + 1} />
                             )}
 
                         </div>
@@ -275,65 +275,65 @@ const StorePage = ({ store, relStores, simCat }) => {
                             </>
                         )}
                     </div>
-                     {/* comment */}
-                     <div className="comment-box">
+                    {/* comment */}
+                    <div className="comment-box">
                         <div id="showComment">
                             <button onClick={toggleCommentBox} className="btn btn-primary">
                                 {showCommentBox ? 'Hide Comment Box' : 'Leave a Comment'}
                             </button>
                         </div>
                         {showCommentBox && (
-                        <div className="commentbox">
-                            <div className="row comment mx-auto">
-                                <h3>Let other know how much you saved</h3>
-                                <p>
-                                    Your email address will not be published. Required fields are
-                                    marked <span>*</span>
-                                </p>
+                            <div className="commentbox">
+                                <div className="row comment mx-auto">
+                                    <h3>Let other know how much you saved</h3>
+                                    <p>
+                                        Your email address will not be published. Required fields are
+                                        marked <span>*</span>
+                                    </p>
+                                </div>
+                                <div className="row input mx-auto">
+                                    <form className="d-block" role="post">
+                                        <textarea
+                                            name=""
+                                            className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                            rows={10}
+                                            placeholder="Input your thought ..."
+                                            required=""
+                                            defaultValue={""}
+                                        />
+                                        <label htmlFor="name" className="d-block">
+                                            <i className="fa-regular fa-user" /> Name <span>*</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder="Name"
+                                            required=""
+                                            className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                        />
+                                        <label htmlFor="email" className="d-block">
+                                            <i className="fa-regular fa-envelope" /> Email <span>*</span>
+                                        </label>
+                                        <input
+                                            type="email"
+                                            className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                            placeholder="Enter your email address"
+                                            required=""
+                                        />
+                                        <label htmlFor="url" className="d-block">
+                                            <i className="fa-solid fa-globe" /> Website
+                                        </label>
+                                        <input
+                                            type="text"
+                                            className="col-sm-12 col-md-10 col-lg-10 d-block"
+                                            placeholder="website url"
+                                        />
+                                        <button type="submit" onclick="">
+                                            Post Comment
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                            <div className="row input mx-auto">
-                                <form className="d-block" role="post">
-                                    <textarea
-                                        name=""
-                                        className="col-sm-12 col-md-10 col-lg-10 d-block"
-                                        rows={10}
-                                        placeholder="Input your thought ..."
-                                        required=""
-                                        defaultValue={""}
-                                    />
-                                    <label htmlFor="name" className="d-block">
-                                        <i className="fa-regular fa-user" /> Name <span>*</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        placeholder="Name"
-                                        required=""
-                                        className="col-sm-12 col-md-10 col-lg-10 d-block"
-                                    />
-                                    <label htmlFor="email" className="d-block">
-                                        <i className="fa-regular fa-envelope" /> Email <span>*</span>
-                                    </label>
-                                    <input
-                                        type="email"
-                                        className="col-sm-12 col-md-10 col-lg-10 d-block"
-                                        placeholder="Enter your email address"
-                                        required=""
-                                    />
-                                    <label htmlFor="url" className="d-block">
-                                        <i className="fa-solid fa-globe" /> Website
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="col-sm-12 col-md-10 col-lg-10 d-block"
-                                        placeholder="website url"
-                                    />
-                                    <button type="submit" onclick="">
-                                        Post Comment
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                     )}
+                        )}
                     </div>
                 </div>
             </section>
@@ -410,7 +410,12 @@ export async function getStaticProps({ params }) {
             const firstCouponCode =
                 store.coupon_set?.find((x) => x.coupon_type === "code")?.coupon_code || "";
             const totalCoupons = store.coupon_set?.length || 0;
-
+            store.store_h1 = store.store_h1
+                .replaceAll("%%storename%%", store.title)
+                .replaceAll("%percentage% Off", firstCouponTitle)
+                .replaceAll("%percentage% Off", firstCouponTitle)
+                .replaceAll("%percentage% OFF", firstCouponTitle)
+                .replaceAll("%percentage% Off", firstCouponTitle);
             store.store_description = store.store_description
                 .replaceAll("%%storename%%", store.title)
                 .replaceAll("%percentage% off", firstCouponTitle)
