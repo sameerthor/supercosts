@@ -470,10 +470,10 @@ export async function getStaticProps() {
 
     return {
       props: { categories, stores, blogs },
-      revalidate: 10,
+      revalidate: 3600,
     };
   } catch (error) {
     console.error("Error fetching data:", error);
-    return { props: { categories: [], stores: [], blogs: [] }, revalidate: 10 };
+    return { props: { categories: [], stores: [], blogs: [] }, revalidate: 3600 };
   }
 }

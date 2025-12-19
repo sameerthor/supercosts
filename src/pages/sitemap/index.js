@@ -27,7 +27,7 @@ export async function getServerSideProps({ res, req }) {
     res.setHeader("Content-Type", "text/xml");
     res.write(sitemap);
     res.end();
-    return { props: { results: { urlList } }, revalidate: 10 }
+    return { props: { results: { urlList } }, revalidate: 3600 }
 };
 
 

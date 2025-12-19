@@ -117,7 +117,7 @@ export async function getStaticProps() {
         props: {
             initialStoreData: storeData,
         },
-        revalidate: 60, // rebuild every 1 min (adjust as needed)
+        revalidate: 3600, // rebuild every 1 min (adjust as needed)
     };
 }
 

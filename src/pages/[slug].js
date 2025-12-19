@@ -453,7 +453,7 @@ export async function getStaticProps({ params }) {
             relStores,
             simCat,
         },
-        revalidate: 5, // re-generate every 5 sec
+        revalidate: 3600, // re-generate every 5 sec
     };
 }
 
