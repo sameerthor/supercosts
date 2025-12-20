@@ -254,7 +254,6 @@ export async function getStaticProps() {
     ]);
 
     const categories = categoriesRaw.slice(0, 12).map(c => ({
-      id: c.id,
       slug: c.slug,
       title: c.title,
     }));
@@ -262,7 +261,6 @@ export async function getStaticProps() {
     const stores = storesRaw
       .filter(x => x.home_options === "1" || x.home_options === "2")
       .map(s => ({
-        id: s.id,
         slug: s.slug,
         title: s.title,
         image: s.image,
@@ -272,7 +270,6 @@ export async function getStaticProps() {
       .slice(0, 24);
 
     const blogs = blogsRaw.slice(0, 12).map(b => ({
-      id: b.id,
       slug: b.slug,
       image: b.image,
       meta_description: b.meta_description,
