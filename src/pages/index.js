@@ -247,11 +247,37 @@ export async function getStaticProps() {
       fetch(`https://backend.supercosts.com/posts?ordering=-updated_at`),
     ]);
 
-    const [categories, stores, blogs] = await Promise.all([
+    const [categoriesRaw, storesRaw, blogsRaw] = await Promise.all([
       categoriesRes.json(),
       storesRes.json(),
       blogsRes.json(),
     ]);
+
+    const categories = categoriesRaw.slice(0, 12).map(c => ({
+      id: c.id,
+      slug: c.slug,
+      title: c.title,
+    }));
+
+    const stores = storesRaw
+      .filter(x => x.home_options === "1" || x.home_options === "2")
+      .map(s => ({
+        id: s.id,
+        slug: s.slug,
+        title: s.title,
+        image: s.image,
+        home_options: s.home_options,
+        seo_description: s.seo_description,
+      }))
+      .slice(0, 24);
+
+    const blogs = blogsRaw.slice(0, 12).map(b => ({
+      id: b.id,
+      slug: b.slug,
+      image: b.image,
+      meta_description: b.meta_description,
+      updated_at: b.updated_at,
+    }));
 
     return {
       props: { categories, stores, blogs },
@@ -259,6 +285,10 @@ export async function getStaticProps() {
     };
   } catch (error) {
     console.error("Error fetching data:", error);
-    return { props: { categories: [], stores: [], blogs: [] }, revalidate: 3600 };
+    return {
+      props: { categories: [], stores: [], blogs: [] },
+      revalidate: 3600,
+    };
   }
 }
+
