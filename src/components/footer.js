@@ -330,7 +330,7 @@ export default function Footer() {
                                 Made with love ❤️ from United Kingdom.
                             </p>
                             <p className="lovtxt">
-                                Copyright © 2024 SuperCosts.com All Right Reserved
+                                Copyright &copy; {new Date().getFullYear()} SuperCosts.com All Right Reserved
                             </p>
                         </div>
                     </div>
