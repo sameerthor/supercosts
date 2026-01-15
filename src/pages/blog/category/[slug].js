@@ -117,45 +117,38 @@ function blogCategory({ allPosts, category }) {
 // This function gets called at build time on server-side.
 // It may be called again, on a serverless function, if
 // revalidation is enabled and a new request comes in
-export async function getStaticProps({ params }) {
-    const cat = await fetch(`https://backend.supercosts.com/post-categories/${params.slug}`)
-    const category = await cat.json()
-    if (category.detail) {
-        return {
-            notFound: true
-        };
+export async function getServerSideProps({ params }) {
+  try {
+    const catRes = await fetch(
+      `https://backend.supercosts.com/post-categories/${params.slug}`
+    );
+
+    if (!catRes.ok) {
+      return { notFound: true };
     }
-    const res = await fetch(`https://backend.supercosts.com/posts?search=${params.slug}&ordering=-id`)
-    const allPosts = await res.json()
+
+    const category = await catRes.json();
+
+    const postRes = await fetch(
+      `https://backend.supercosts.com/posts?search=${params.slug}&ordering=-id`
+    );
+
+    if (!postRes.ok) {
+      return { notFound: true };
+    }
+
+    const allPosts = await postRes.json();
 
     return {
-        props: {
-            allPosts,
-            category
-        },
-        // Next.js will attempt to re-generate the page:
-        // - When a request comes in
-        // - At most once every 10 seconds
-        revalidate: 3600, // In seconds
-    }
+      props: {
+        allPosts,
+        category,
+      },
+    };
+  } catch (error) {
+    return { notFound: true };
+  }
 }
 
-// This function gets called at build time on server-side.
-// It may be called again, on a serverless function, if
-// the path has not been generated.
-export async function getStaticPaths() {
-    const res = await fetch('https://backend.supercosts.com/post-categories')
-    const categories = await res.json()
-
-    // Get the paths we want to pre-render based on posts
-    const paths = categories.map((item) => ({
-        params: { slug: item.slug },
-    }))
-
-    // We'll pre-render only these paths at build time.
-    // { fallback: 'blocking' } will server-render pages
-    // on-demand if the path doesn't exist.
-    return { paths, fallback: 'blocking' }
-}
 
 export default blogCategory
